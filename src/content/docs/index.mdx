@@ -1,0 +1,31 @@
+---
+title: Epic Edu
+description: A practical Unreal Engine documentation handbook.
+template: splash
+hero:
+  tagline: A compact, readable Unreal Engine handbook for building real projects.
+  actions:
+    - text: Start reading
+      link: /introduction/
+      icon: right-arrow
+      variant: primary
+    - text: Fundamentals
+      link: /fundamentals/editor-overview/
+      icon: open-book
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Current Sections
+
+<CardGrid>
+  <Card title="Unreal Engine Fundamentals" icon="setting">
+    Editor layout, projects, assets, levels, actors, and the mental model for working in Unreal.
+  </Card>
+  <Card title="Blueprints" icon="puzzle">
+    Visual scripting notes for gameplay logic, communication, events, and debugging.
+  </Card>
+  <Card title="C++" icon="code">
+    Unreal-flavored C++ patterns, reflection macros, classes, components, and build structure.
+  </Card>
+</CardGrid>

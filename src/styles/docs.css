@@ -1,0 +1,56 @@
+:root {
+  --sl-font: "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sl-font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --sl-content-width: 48rem;
+  --sl-text-5xl: 2.1rem;
+  --sl-text-4xl: 1.75rem;
+  --sl-text-3xl: 1.35rem;
+  --sl-color-accent-low: #d7e3f7;
+  --sl-color-accent: #2563eb;
+  --sl-color-accent-high: #102d61;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-bg: #101114;
+  --sl-color-bg-nav: #101114;
+  --sl-color-bg-sidebar: #0d0e11;
+  --sl-color-bg-inline-code: #1c1e24;
+  --sl-color-hairline-light: #272a32;
+  --sl-color-hairline: #333743;
+  --sl-color-text: #eceff4;
+  --sl-color-text-accent: #8ab4ff;
+  --sl-color-accent-low: #172237;
+  --sl-color-accent: #77a7ff;
+  --sl-color-accent-high: #d9e7ff;
+}
+
+body {
+  letter-spacing: 0;
+}
+
+.sl-markdown-content {
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  letter-spacing: 0;
+}
+
+.sl-markdown-content h1 {
+  font-size: 2.1rem;
+}
+
+.sl-markdown-content code {
+  border-radius: 4px;
+}
+
+.sl-markdown-content pre {
+  border-radius: 6px;
+}
+
+.sidebar-content a {
+  border-radius: 4px;
+}
