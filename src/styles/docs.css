@@ -1,7 +1,15 @@
 :root {
   --sl-font: "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --sl-font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --sl-content-width: 48rem;
+  --site-gutter: 2.2rem;
+  --site-sidebar-width: 16.5rem;
+  --site-content-width: 50rem;
+  --site-toc-width: 18rem;
+  --site-column-gap: 2rem;
+  --site-shell-width: calc(var(--site-sidebar-width) + var(--site-content-width) + var(--site-toc-width) + (2 * var(--site-column-gap)));
+  --site-shell-offset: var(--site-gutter);
+  --sl-sidebar-width: var(--site-sidebar-width);
+  --sl-content-width: var(--site-content-width);
   --sl-text-5xl: 2.1rem;
   --sl-text-4xl: 1.75rem;
   --sl-text-3xl: 1.35rem;
@@ -53,4 +61,140 @@ body {
 
 .sidebar-content a {
   border-radius: 4px;
+}
+
+body > .page > header.header {
+  --sl-nav-height: 3.1rem;
+  --sl-nav-pad-x: var(--site-gutter);
+  --sl-nav-pad-y: 0;
+  border-bottom-color: #242832;
+  background: #15161b;
+}
+
+header.header > .header {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  gap: var(--site-column-gap);
+  align-items: center;
+}
+
+.title-wrapper {
+  align-items: center;
+}
+
+.site-title {
+  gap: 0;
+  color: #f6f7fb;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+site-search button[data-open-modal] {
+  height: 2.35rem;
+  max-width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: #101116;
+  color: #d9dce4;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+site-search button[data-open-modal] svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #ffffff;
+}
+
+site-search button[data-open-modal] kbd {
+  display: none !important;
+}
+
+.right-group {
+  display: none !important;
+}
+
+header.header > .header > .sl-flex.print\:hidden {
+  justify-content: flex-end;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-bg-nav: #15161b;
+}
+
+.sidebar-pane .sidebar-content {
+  padding: 1rem 1.25rem 0 var(--site-gutter) !important;
+}
+
+@media (min-width: 50rem) {
+  :root[data-has-sidebar] {
+    --site-shell-offset: max(var(--site-gutter), calc((100vw - var(--site-shell-width)) / 2));
+    --sl-content-inline-start: calc(var(--site-shell-offset) + var(--site-sidebar-width) + var(--site-column-gap));
+  }
+
+  body > .page > header.header {
+    padding-inline: var(--site-shell-offset) !important;
+  }
+
+  header.header > .header {
+    max-width: var(--site-shell-width);
+    grid-template-columns: var(--site-sidebar-width) minmax(0, var(--site-content-width)) var(--site-toc-width);
+  }
+
+  header.header > .header > .sl-flex.print\:hidden {
+    grid-column: 3;
+    width: 100%;
+  }
+
+  .sidebar-pane {
+    inset-inline-start: var(--site-shell-offset) !important;
+    width: var(--site-sidebar-width) !important;
+  }
+}
+
+@media (min-width: 72rem) {
+  [data-has-sidebar] .main-frame {
+    padding-inline-start: var(--sl-content-inline-start) !important;
+  }
+
+  [data-has-sidebar] .main-frame > .lg\:sl-flex {
+    width: calc(var(--site-content-width) + var(--site-column-gap) + var(--site-toc-width));
+    max-width: calc(100vw - var(--sl-content-inline-start));
+  }
+
+  [data-has-sidebar][data-has-toc] .main-pane,
+  [data-has-sidebar] .main-pane {
+    --sl-content-margin-inline: 0;
+    flex: 0 0 var(--site-content-width);
+    order: 1;
+    width: var(--site-content-width) !important;
+  }
+
+  [data-has-sidebar] .main-pane .sl-container {
+    margin-inline: 0 !important;
+  }
+
+  [data-has-sidebar] .right-sidebar-container {
+    flex: 0 0 var(--site-toc-width);
+    order: 2;
+    width: var(--site-toc-width) !important;
+    margin-inline-start: var(--site-column-gap);
+  }
+
+  [data-has-sidebar] .right-sidebar {
+    inset-inline-start: calc(var(--sl-content-inline-start) + var(--site-content-width) + var(--site-column-gap)) !important;
+    width: var(--site-toc-width) !important;
+  }
+
+  [data-has-sidebar] .right-sidebar-panel {
+    padding-inline: 0 !important;
+  }
+
+  [data-has-sidebar] .right-sidebar-panel .sl-container {
+    width: var(--site-toc-width) !important;
+    max-width: var(--site-toc-width) !important;
+  }
 }

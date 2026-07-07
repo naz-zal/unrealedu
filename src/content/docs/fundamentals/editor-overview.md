@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Editor Overview
-
 The Unreal Editor is the main workspace for building levels, importing assets, editing Blueprints, configuring projects, and testing gameplay.
 
 ## Core Areas

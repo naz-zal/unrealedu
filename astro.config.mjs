@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'Epic Edu',
+      title: 'Epic Games Education',
       description: 'A practical Unreal Engine documentation handbook.',
       customCss: [
         '@fontsource/roboto/400.css',
@@ -31,13 +31,6 @@ export default defineConfig({
         {
           label: 'C++',
           items: [{ autogenerate: { directory: 'cpp' } }],
-        },
-      ],
-      social: [
-        {
-          icon: 'github',
-          label: 'GitHub',
-          href: 'https://github.com/',
         },
       ],
     }),
