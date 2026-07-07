@@ -198,3 +198,13 @@ header.header > .header > .sl-flex.print\:hidden {
     max-width: var(--site-toc-width) !important;
   }
 }
+
+@media (min-width: 72rem) {
+  [data-has-sidebar] .right-sidebar {
+    border-inline-start: 0 !important;
+  }
+
+  [data-has-sidebar] .right-sidebar-panel {
+    padding-inline-start: 0 !important;
+  }
+}
