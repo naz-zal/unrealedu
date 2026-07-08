@@ -36,6 +36,14 @@ body {
   letter-spacing: 0;
 }
 
+/*
+  Layout shell contract:
+  These rules intentionally align Starlight's fixed sidebar, article column,
+  and table-of-contents rail to one centered grid. Keep this section audited
+  when upgrading Starlight, because it touches component structure that
+  Starlight does not expose fully through public config.
+*/
+
 .sl-markdown-content {
   font-size: 1rem;
   line-height: 1.78;
@@ -110,14 +118,14 @@ site-search button[data-open-modal] svg {
 }
 
 site-search button[data-open-modal] kbd {
-  display: none !important;
+  display: none;
 }
 
 .right-group {
-  display: none !important;
+  display: none;
 }
 
-header.header > .header > .sl-flex.print\:hidden {
+header.header > .header > :has(> site-search) {
   justify-content: flex-end;
 }
 
@@ -126,7 +134,7 @@ header.header > .header > .sl-flex.print\:hidden {
 }
 
 .sidebar-pane .sidebar-content {
-  padding: 1rem 1.25rem 0 var(--site-gutter) !important;
+  padding: 1rem 1.25rem 0 var(--site-gutter);
 }
 
 @media (min-width: 50rem) {
@@ -136,7 +144,7 @@ header.header > .header > .sl-flex.print\:hidden {
   }
 
   body > .page > header.header {
-    padding-inline: var(--site-shell-offset) !important;
+    padding-inline: var(--site-shell-offset);
   }
 
   header.header > .header {
@@ -144,23 +152,23 @@ header.header > .header > .sl-flex.print\:hidden {
     grid-template-columns: var(--site-sidebar-width) minmax(0, var(--site-content-width)) var(--site-toc-width);
   }
 
-  header.header > .header > .sl-flex.print\:hidden {
+  header.header > .header > :has(> site-search) {
     grid-column: 3;
     width: 100%;
   }
 
   .sidebar-pane {
-    inset-inline-start: var(--site-shell-offset) !important;
-    width: var(--site-sidebar-width) !important;
+    inset-inline-start: var(--site-shell-offset);
+    width: var(--site-sidebar-width);
   }
 }
 
 @media (min-width: 72rem) {
   [data-has-sidebar] .main-frame {
-    padding-inline-start: var(--sl-content-inline-start) !important;
+    padding-inline-start: var(--sl-content-inline-start);
   }
 
-  [data-has-sidebar] .main-frame > .lg\:sl-flex {
+  [data-has-sidebar] .main-frame > :first-child {
     width: calc(var(--site-content-width) + var(--site-column-gap) + var(--site-toc-width));
     max-width: calc(100vw - var(--sl-content-inline-start));
   }
@@ -170,41 +178,30 @@ header.header > .header > .sl-flex.print\:hidden {
     --sl-content-margin-inline: 0;
     flex: 0 0 var(--site-content-width);
     order: 1;
-    width: var(--site-content-width) !important;
+    width: var(--site-content-width);
   }
 
   [data-has-sidebar] .main-pane .sl-container {
-    margin-inline: 0 !important;
+    margin-inline: 0;
   }
 
   [data-has-sidebar] .right-sidebar-container {
+    --sl-sidebar-width: var(--site-toc-width);
+    --sl-sidebar-pad-x: 0rem;
     flex: 0 0 var(--site-toc-width);
     order: 2;
-    width: var(--site-toc-width) !important;
+    width: var(--site-toc-width);
     margin-inline-start: var(--site-column-gap);
   }
 
   [data-has-sidebar] .right-sidebar {
-    inset-inline-start: calc(var(--sl-content-inline-start) + var(--site-content-width) + var(--site-column-gap)) !important;
-    width: var(--site-toc-width) !important;
+    inset-inline-start: calc(var(--sl-content-inline-start) + var(--site-content-width) + var(--site-column-gap));
+    width: var(--site-toc-width);
+    border-inline-start: 0;
   }
 
   [data-has-sidebar] .right-sidebar-panel {
-    padding-inline: 0 !important;
-  }
-
-  [data-has-sidebar] .right-sidebar-panel .sl-container {
-    width: var(--site-toc-width) !important;
-    max-width: var(--site-toc-width) !important;
-  }
-}
-
-@media (min-width: 72rem) {
-  [data-has-sidebar] .right-sidebar {
-    border-inline-start: 0 !important;
-  }
-
-  [data-has-sidebar] .right-sidebar-panel {
-    padding-inline-start: 0 !important;
+    padding-inline: 0;
+    padding-inline-start: 0;
   }
 }

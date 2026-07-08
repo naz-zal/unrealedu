@@ -18,6 +18,7 @@ export default defineConfig({
           items: [
             { label: 'Introduction', slug: 'introduction' },
             { label: 'How to Use This Book', slug: 'how-to-use-this-book' },
+            { label: 'UEFN Master Guide', slug: 'uefn-curriculum' },
           ],
         },
         {
