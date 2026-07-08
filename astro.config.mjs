@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
+  site: 'https://naz-zal.github.io',
+  base: '/unrealedu',
   integrations: [
     starlight({
       title: 'Epic Games Education',
