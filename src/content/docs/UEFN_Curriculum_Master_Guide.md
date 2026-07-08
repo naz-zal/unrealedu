@@ -8,7 +8,7 @@ sidebar:
 
 **UEFN Curriculum Master Guide**
 
-Teaching Game Design and Development with Unreal Editor for Fortnite
+Teaching Game Design and Development with Unreal Editor for Fortnite.
 
 High School Edition  |  Epic Games  |  June 2026
 
