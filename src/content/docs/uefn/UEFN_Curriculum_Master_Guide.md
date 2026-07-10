@@ -1,7 +1,7 @@
 ---
 title: UEFN Master Guide
 description: A one-stop-shop for all UEFN.
-slug: uefn-curriculum
+slug: uefn/uefn-curriculum
 sidebar:
   order: 3
 ---

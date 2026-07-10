@@ -9,31 +9,36 @@ export default defineConfig({
       title: 'Epic Games Education',
       description: 'A practical Unreal Engine documentation handbook.',
       customCss: [
-        '@fontsource/roboto/400.css',
-        '@fontsource/roboto/500.css',
-        '@fontsource/roboto/700.css',
+        '@fontsource/geist-sans/400.css',
+        '@fontsource/geist-sans/500.css',
+        '@fontsource/geist-sans/600.css',
+        '@fontsource/geist-sans/700.css',
         './src/styles/docs.css',
       ],
+      components: {
+        Header: './src/components/Header.astro',
+        Sidebar: './src/components/Sidebar.astro',
+      },
       sidebar: [
         {
           label: 'Start Here',
           items: [
-            { label: 'Introduction', slug: 'introduction' },
-            { label: 'How to Use This Book', slug: 'how-to-use-this-book' },
-            { label: 'UEFN Master Guide', slug: 'uefn-curriculum' },
+            { label: 'Introduction', slug: 'uefn/introduction' },
+            { label: 'How to Use This Book', slug: 'uefn/how-to-use-this-book' },
+            { label: 'UEFN Master Guide', slug: 'uefn/uefn-curriculum' },
           ],
         },
         {
           label: 'Unreal Engine Fundamentals',
-          items: [{ autogenerate: { directory: 'fundamentals' } }],
+          items: [{ autogenerate: { directory: 'uefn/fundamentals' } }],
         },
         {
           label: 'Blueprints',
-          items: [{ autogenerate: { directory: 'blueprints' } }],
+          items: [{ autogenerate: { directory: 'uefn/blueprints' } }],
         },
         {
           label: 'C++',
-          items: [{ autogenerate: { directory: 'cpp' } }],
+          items: [{ autogenerate: { directory: 'uefn/cpp' } }],
         },
       ],
     }),
